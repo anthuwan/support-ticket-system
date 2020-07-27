@@ -1,0 +1,17 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+      jdbc-url: jdbc:h2:mem:sts;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=2;TRACE_LEVEL_FILE=4;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+      test-on-borrow: true
+      validation-query: SELECT 1 FROM dual
+  thymeleaf:
+    cache: false
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+

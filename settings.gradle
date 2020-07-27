@@ -1,0 +1,3 @@
+rootProject.name = 'Support-ticket-system'
+include 'Support-ticket-system-admin'
+

@@ -1,0 +1,107 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.1.RELEASE'
+        springCloudVersion = '2.1.4.RELEASE'
+        springFoxVersion = '2.9.2'
+        springOpenFeignVersion = '2.1.3.RELEASE'
+        commonsLang3Version = '3.9'
+        swaggerAnnotationsVersion = '1.5.24'
+        ojdbcDriver = 'org.mariadb.jdbc:mariadb-java-client:2.5.2'
+        logbackEncoderVersion = '6.2'
+        modelMapperVersion = '2.3.5'
+        springGradlePluginVersion = '1.0.8.RELEASE'
+        openApiGeneratorVersion = '4.2.0'
+        openApiJacksonVersion = '0.2.0'
+        lombokVersion = '1.18.10'
+        issuingActuatorUtilsVersion = '1.0.3'
+        issuingCorrelationVersion = '1.3.4'
+        issuingGradlePluginVersion = '3.0.0-RC1'
+        issuingDbMigrationVersion = '2.0.0.1-spring-boot-2+c84f4f'
+        problemSpringWebStarterVersion = '0.25.2'
+        fasterXmlVersion = '2.9.0'
+        commonsCodecVersion = '1.8'
+        jsonVersion = '20190722'
+        springbootStarterVersion='2.2.4.RELEASE'
+        springbootStarteSecurityrVersion='2.2.4.RELEASE'
+        springSecurityConfig='5.0.6.RELEASE'
+        thymeleafSpring4='3.0.9.RELEASE'
+        jwtversion='0.9.1'
+        thymeleafextras='2.1.3.RELEASE'
+        thymeleafversion='3.0.9.RELEASE'
+        thymeleafdialect='2.4.1'
+        h2Version = '1.4.200'
+        springFrameworkRestdocsVersion = '2.0.3.RELEASE'
+    }
+
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:$springGradlePluginVersion"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+        classpath "org.openapitools:openapi-generator-gradle-plugin:$openApiGeneratorVersion"
+    }
+
+
+}
+
+allprojects {
+    plugins.withType(JavaPlugin).whenPluginAdded {
+        dependencies {
+            constraints {
+                compile("org.springframework.cloud:spring-cloud-starter-config:$springCloudVersion")
+                compile("org.springframework.boot:spring-boot-starter-web:$springbootStarterVersion")
+                compile("org.springframework.boot:spring-boot-starter-security:$springbootStarteSecurityrVersion")
+                compile("org.springframework.security:spring-security-config:$springSecurityConfig")
+                compile("org.springframework.cloud:spring-cloud-starter-openfeign:$springOpenFeignVersion")
+                compile("com.h2database:h2:$h2Version")
+                compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+                compile("org.thymeleaf:thymeleaf-spring4:$thymeleafSpring4")
+                compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeleafextras")
+                compile("org.thymeleaf:thymeleaf:$thymeleafversion")
+                compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:$thymeleafdialect")
+
+                compile("org.apache.commons:commons-lang3:$commonsLang3Version")
+                runtime("net.logstash.logback:logstash-logback-encoder:$logbackEncoderVersion")
+
+                compile("io.swagger:swagger-annotations:$swaggerAnnotationsVersion")
+                compile("io.springfox:springfox-swagger2:$springFoxVersion")
+                compile("io.springfox:springfox-swagger-ui:$springFoxVersion")
+
+                compile("io.jsonwebtoken:jjwt:$jwtversion")
+                compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$fasterXmlVersion")
+                compile("org.json:json:$jsonVersion")
+                compile("org.modelmapper:modelmapper:$modelMapperVersion")
+                compile("commons-codec:commons-codec:$commonsCodecVersion")
+                compile("org.openapitools:jackson-databind-nullable:$openApiJacksonVersion")
+                compileOnly("org.projectlombok:lombok:$lombokVersion")
+                annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+                runtime(ojdbcDriver)
+            }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.support.ticket.system'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:$springBootVersion"
+        }
+    }
+}

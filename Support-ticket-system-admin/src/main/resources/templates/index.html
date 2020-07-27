@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Support Ticket System</title>
+</head>
+<body>
+<div align="center">
+        <h1>Support Ticket System</h1>
+    <a href="/new">Create New Ticket</a>
+        <br/><br/>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                    <th>ID</th>
+                    <th>Created By</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Status</th>
+                    <th>Cancellation reason</th>
+                    <th>Cancellation Other Description</th>
+                    <th>Comments</th>
+                </tr>
+        </thead>
+            <tbody>
+            <tr th:each="ticketDetails : ${ticketDetailsList}">
+                    <td th:text="${ticketDetails.id}">ID</td>
+                    <td th:text="${ticketDetails.createdBy}">Created By</td>
+                    <td th:text="${ticketDetails.description}">Description</td>
+                    <td th:text="${ticketDetails.severity}">Severity</td>
+                    <td th:text="${ticketDetails.status}">Status</td>
+     <td th:text="${ticketDetails.cancelledReason}">Cancelled Reason</td>
+     <td th:text="${ticketDetails.cancelledOtherDescription}">Cancelled Other Description</td>
+     <td th:text="${ticketDetails.comments}">Comments</td>
+               <td>
+    <a th:href="@{/edit/__${ticketDetails.id}__}"><span>Edit</span></a>
+
+</td>
+                </tr>
+        </tbody>
+        </table>
+</div>   
+</body>
+</html>

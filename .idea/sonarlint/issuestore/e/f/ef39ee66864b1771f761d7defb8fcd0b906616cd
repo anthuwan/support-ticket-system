@@ -1,0 +1,6 @@
+
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÃÂşÄ8ä¿¼¿¸.
+msquid:S1192"JDefine a constant instead of duplicating this literal "cancelled" 3 times.(‰Îüçûÿÿÿÿ8©Õª¼¸.
+]squid:S1118":Add a private constructor to hide the implicit public one.(î–ƒœûÿÿÿÿ8ÁŞ¼¸.
+ƒsquid:S4165"eRemove this useless assignment; "idIndex" already holds the assigned value along all execution paths.(é·Ü8Î«Ã¿¸.
+|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÇıÓÒûÿÿÿÿ8ÁŞ¼¸.

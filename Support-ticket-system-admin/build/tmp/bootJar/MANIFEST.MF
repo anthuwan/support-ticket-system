@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Version: unspecified
+Start-Class: com.support.ticket.system.STSApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Specification-Title: STS Admin Application
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 2.2.1.RELEASE
+Implementation-Vendor: STS
+Main-Class: org.springframework.boot.loader.JarLauncher
+
